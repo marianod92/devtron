@@ -671,17 +671,6 @@ func InitializeApp() (*App, error) {
 		restHandler.NewBulkUpdateRestHandlerImpl,
 		wire.Bind(new(restHandler.BulkUpdateRestHandler), new(*restHandler.BulkUpdateRestHandlerImpl)),
 
-
-		router.NewAppLabelRouterImpl,
-		wire.Bind(new(router.AppLabelRouter), new(*router.AppLabelRouterImpl)),
-		restHandler.NewAppLabelRestHandlerImpl,
-		wire.Bind(new(restHandler.AppLabelRestHandler), new(*restHandler.AppLabelRestHandlerImpl)),
-
-		app.NewAppLabelServiceImpl,
-		wire.Bind(new(app.AppLabelService), new(*app.AppLabelServiceImpl)),
-		pipelineConfig.NewAppLabelRepositoryImpl,
-		wire.Bind(new(pipelineConfig.AppLabelRepository), new(*pipelineConfig.AppLabelRepositoryImpl)),
-
 		// Webhook
 		repository.NewGitHostRepositoryImpl,
 		wire.Bind(new(repository.GitHostRepository), new(*repository.GitHostRepositoryImpl)),
@@ -702,6 +691,15 @@ func InitializeApp() (*App, error) {
 		pipeline.NewWebhookEventDataConfigImpl,
 		wire.Bind(new(pipeline.WebhookEventDataConfig), new(*pipeline.WebhookEventDataConfigImpl)),
 
+		router.NewAppLabelRouterImpl,
+		wire.Bind(new(router.AppLabelRouter), new(*router.AppLabelRouterImpl)),
+		restHandler.NewAppLabelRestHandlerImpl,
+		wire.Bind(new(restHandler.AppLabelRestHandler), new(*restHandler.AppLabelRestHandlerImpl)),
+
+		app.NewAppLabelServiceImpl,
+		wire.Bind(new(app.AppLabelService), new(*app.AppLabelServiceImpl)),
+		pipelineConfig.NewAppLabelRepositoryImpl,
+		wire.Bind(new(pipelineConfig.AppLabelRepository), new(*pipelineConfig.AppLabelRepositoryImpl)),
 
 	)
 	return &App{}, nil
