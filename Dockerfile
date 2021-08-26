@@ -1,4 +1,4 @@
-FROM golang:1.14.13-alpine3.12  AS build-env
+FROM golang:1.15.15-alpine3.14  AS build-env
 
 RUN echo $GOPATH
 
